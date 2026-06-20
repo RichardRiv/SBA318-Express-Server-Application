@@ -3,6 +3,7 @@ import { error } from './utilities/error.js';
 
 import root from './routes/root.js';
 import home from './routes/home.js';
+import game from './routes/game.js';
 
 const app = express();
 const port = 3000;
@@ -31,19 +32,21 @@ app.use((req, res, next) => {
 });
 
 // TODO: Will need to replace apiKey middleware
-const apiKey = 'sba-318';
-app.use('/api', (req, res, next) => {
-	const key = req.query['api-key'];
+// const apiKey = 'sba-318';
+// app.use('/api', (req, res, next) => {
+// 	const key = req.query['api-key'];
 
-	if (!key) return next(error(400, 'API Key Required. Hint: sba-318'));
-	if (key !== apiKey) return next(error(400, 'Invalid API Key. Hint: sba-318'));
+// 	if (!key) return next(error(400, 'API Key Required. Hint: sba-318'));
+// 	if (key !== apiKey) return next(error(400, 'Invalid API Key. Hint: sba-318'));
 
-	next();
-});
+// 	next();
+// });
 
 // Routes
 app.use('/', root);
-app.use('/api/home', home);
+// app.use('/api/home', home);
+app.use('/home', home);
+app.use('/game', game);
 
 app.use((err, req, res, next) => {
 	res.status(err.status || 500);
