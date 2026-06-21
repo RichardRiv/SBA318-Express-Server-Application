@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 app.use('/', root);
 // app.use('/api/home', home);
 app.use('/home', home);
-app.use('/game', game);
+app.use('/home/game', game);
 
 app.use((err, req, res, next) => {
 	res.status(err.status || 500);

@@ -6,13 +6,25 @@ import { getGamesData } from '../utilities/helpers.js';
 
 const router = express.Router();
 
-router.route('/:id').get((req, res, next) => {
+router
+	.route('/:id')
+	.get((req, res, next) => {
+		const gameId = Number(req.params.id);
+		const gameData = getGamesData();
+		const game = gameData.find((g) => g.id === gameId);
+
+		res.render('game.ejs', { game });
+	})
+	.patch((req, res) => {
+		res.json(req.body);
+	});
+
+router.route('/:id/edit').get((req, res, next) => {
 	const gameId = Number(req.params.id);
 	const gameData = getGamesData();
 	const game = gameData.find((g) => g.id === gameId);
-	console.log(game);
 
-	res.render('game.ejs', { game });
+	res.render('gameEdit.ejs', { game });
 });
 
 export default router;

@@ -21,17 +21,17 @@
 			<tbody>
                 <% gameData.forEach((game) => { %>
                     <tr>
-                        <td><a href="/game/<%= game.id %>"><%= game.title %></a></td>
+                        <td><a href="/home/game/<%= game.id %>"><%= game.title %></a></td>
                         <td><%= game.developer.name %></td>
                         <td><%= game.genre %></td>
                         <td><%= game.rating %></td>
                         <td>
-                            <form method="get" action="/game/<%= game.id %>/edit">
+                            <form method="get" action="/home/game/<%= game.id %>/edit">
                                 <button type="submit">Edit</button>
                             </form>
                         </td>
                         <td>
-                            <form method="post" action="/game/<%= game.id %>?_method=DELETE">
+                            <form method="post" action="/home/game/<%= game.id %>?_method=DELETE">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>

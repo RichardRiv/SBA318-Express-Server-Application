@@ -12,5 +12,12 @@
 			<li>Developer: <%= game.developer.name %></li>
 			<li>Rating: <%= game.rating %></li>
 		</ul>
+        <h2>Reviews:</h2>
+        <% game.reviews.forEach(review => { %>
+            <div>
+                <h4 style="margin-bottom: 0px;">AnonymousUser:</h4>
+                <p style="margin: 0px;"><%= review.body %></p>
+            </div>
+        <% }) %>
 	</body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Game</title>
+	</head>
+	<body>
+		<h1>Update Game Details:</h1>
+		<form method="POST" action="/game/<%= game.id %>?_method=PATCH">
+			<div>
+				<label for="">Title:</label>
+				<input type="text" name="title" value="<%= game.title %>" />
+			</div>
+			<br />
+			<div>
+				<label for="">Developer:</label>
+				<input
+					type="text"
+					name="developer"
+					value="<%= game.developer.name %>"
+				/>
+			</div>
+			<br />
+			<div>
+				<label for="">Genre</label>
+				<input type="text" name="genre" value="<%= game.genre %>" />
+			</div>
+			<br />
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
