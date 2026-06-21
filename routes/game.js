@@ -16,6 +16,7 @@ router
 		res.render('game.ejs', { game });
 	})
 	.patch((req, res) => {
+		// TODO: Finish Patch Then Do Delete
 		res.json(req.body);
 	});
 

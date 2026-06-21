@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1>Update Game Details:</h1>
-		<form method="POST" action="/game/<%= game.id %>?_method=PATCH">
+		<form method="POST" action="/home/game/<%= game.id %>?_method=PATCH">
 			<div>
 				<label for="">Title:</label>
 				<input type="text" name="title" value="<%= game.title %>" />

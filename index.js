@@ -1,4 +1,5 @@
 import express from 'express';
+import methodOverride from 'method-override';
 import { error } from './utilities/error.js';
 
 import root from './routes/root.js';
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 // Parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // Logging Middlewaare
 app.use((req, res, next) => {
