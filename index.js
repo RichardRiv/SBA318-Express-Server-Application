@@ -12,10 +12,11 @@ const port = 3000;
 // Setting EJS
 app.set('view engine', 'ejs');
 
-// Parsing Middleware
+// Middleware Actions
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // Logging Middlewaare
 app.use((req, res, next) => {
@@ -33,20 +34,8 @@ app.use((req, res, next) => {
 	next();
 });
 
-// TODO: Will need to replace apiKey middleware
-// const apiKey = 'sba-318';
-// app.use('/api', (req, res, next) => {
-// 	const key = req.query['api-key'];
-
-// 	if (!key) return next(error(400, 'API Key Required. Hint: sba-318'));
-// 	if (key !== apiKey) return next(error(400, 'Invalid API Key. Hint: sba-318'));
-
-// 	next();
-// });
-
 // Routes
 app.use('/', root);
-// app.use('/api/home', home);
 app.use('/home', home);
 app.use('/home/game', game);
 

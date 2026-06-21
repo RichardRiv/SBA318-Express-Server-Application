@@ -4,10 +4,24 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Games</title>
+        <link rel="stylesheet" href="/styles.css">
 	</head>
 	<body>
 		<h1>Games</h1>
 
+        <div>
+            <a href="/home/game/add">
+                <button>Add Game</button>
+            </a>
+            <form action="/home" method="get" style="display: inline;">
+                <select name="genre" onchange="this.form.submit()">
+                    <option value="">All genres</option>
+                    <% genres.forEach(g => { %>
+                    <option value="<%= g %>" <%= selectedGenre === g ? 'selected' : '' %>><%= g %></option>
+                    <% }) %>
+                </select>
+            </form>
+        </div>
 		<table>
 			<thead>
 				<tr>
@@ -19,7 +33,7 @@
 				</tr>
 			</thead>
 			<tbody>
-                <% gameData.forEach((game) => { %>
+                <% gamesData.forEach((game) => { %>
                     <tr>
                         <td><a href="/home/game/<%= game.id %>"><%= game.title %></a></td>
                         <td><%= game.developer.name %></td>

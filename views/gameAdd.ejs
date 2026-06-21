@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Game</title>
+	</head>
+	<body>
+		<h1>Add Game:</h1>
+        <form method="post" action="/home/game/add">
+            <input type="text" name="title" placeholder="Title" />
+            <input type="text" name="genre" placeholder="Genre" />
+            <select name="developerId">
+                <% developers.forEach(dev => { %>
+                <option value="<%= dev.id %>"><%= dev.name %></option>
+                <% }) %>
+            </select>
+            <button type="submit">Add game</button>
+        </form>
+	</body>
+</html>
